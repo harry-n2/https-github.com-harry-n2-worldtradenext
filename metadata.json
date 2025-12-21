@@ -1,0 +1,7 @@
+{
+  "name": "WTN | World Trade Next",
+  "description": "The definitive dashboard for World Trade Next's high-end automation solutions for foreign talent management.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
