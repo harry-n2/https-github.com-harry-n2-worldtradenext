@@ -1,49 +1,45 @@
+
 import { FeatureItem } from './types';
 
 export const COLORS = {
   GOLD: '#c5a059',
-  NAVY: '#050a14',
+  NAVY: '#003366', // ディープブルー
   SLATE: '#8892b0',
+  WHITE: '#FFFFFF',
+  LIGHT_GRAY: '#F5F5F5',
+  CYAN: '#00FFFF' // アクセント：シアン
 };
 
 export const LINKS = {
-  // ご指定の正しいGoogle Driveプレゼン資料リンク
   PRESENTATION_PDF: "https://drive.google.com/file/d/1QcWjfJWdlOU2gRjcyPW6254yr9MX3GQl/view?usp=sharing",
-  // 公式LINEリンク
   OFFICIAL_LINE: "https://lin.ee/7qGC2YD",
   LINE_QR: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://lin.ee/7qGC2YD",
-  // Larkドキュメント
   LARK_PROFILE_DOC: "https://ljpbqpwr5vbk.jp.larksuite.com/docx/GIfWd2Dk7oR1L1xrIIej8AT3prd?from=from_copylink",
-  // AIマーケティング支援専用LP
   AI_MARKETING_LP: "https://harry-n2.github.io/wtn/lp_free_report.html",
-  // AI副業支援専用LP
   AI_SIDE_BIZ_LP: "https://harry-n2.github.io/wtn/lp.html",
-  // AIツール講座 × 業務改善専用ドキュメント
-  AI_COURSE_DOC: "https://ljpbqpwr5vbk.jp.larksuite.com/docx/NtFcdL7qgoZdSwxp4xdj5QVupGb"
+  AI_COURSE_DOC: "https://ljpbqpwr5vbk.jp.larksuite.com/docx/NtFcdL7qgoZdSwxp4xdj5QVupGb",
+  // 今回追加されたMCP専用資料リンク
+  MCP_MATERIAL: "https://drive.google.com/file/d/1AEmM1tvgzMqnsFpWa9CeDQpO0aahHT_Y/view?usp=sharing"
 };
 
 export const IMAGES = {
-  // トップページ：外国人材管理とシステム化を象徴する画像
   HERO_MAIN: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000",
   BUSINESS_EFFICIENCY: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-  
-  // Larkページ：自動化システムの操作感、ダッシュボード、管理の正確性
   LARK_DASHBOARD: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
   LARK_MOBILE: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200",
   LARK_OCR_SCAN: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=1200",
-  
-  // サービス：AIマーケティング、AI副業支援など
   MARKETING_AI: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200",
   OVERSEAS_BIZ: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1200",
   SIDE_BIZ_AI: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1200",
   AI_CONCIERGE_VISUAL: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
-  
-  // 代表：西野 直哉
   REPRESENTATIVE: "https://drive.google.com/thumbnail?id=1cs5h12nHzlAgpYu968KwoNcJPX8A0oJG&sz=w1000", 
-  
-  // PDFダウンロードセクション用のサムネイル
   PDF_THUMBNAIL: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=600",
-  VISION_HERO: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
+  VISION_HERO: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000",
+  // MCP専用ビジュアル
+  MCP_HERO: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000",
+  MCP_PAIN: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=1200",
+  MCP_GLUE: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200",
+  MCP_FLOW: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
 };
 
 export const VISION = {
@@ -51,7 +47,7 @@ export const VISION = {
   representative: {
     title: "World Trade Next 代表",
     name: "西野 直哉",
-    profile: "25年間の多岐にわたる営業現場での経験を経て、AI技術の可能性に開眼.単なる技術導入ではなく、「人の温かみとAIの効率性」が共存する組織作りを提唱。Lark導入支援から、生成AIを活用したマーケティング戦略構築まで、現場に即した泥臭い支援を信条とする。"
+    profile: "25年間の多岐にわたる営業現場での経験を経て、AI技術の可能性に開眼.単なる技術導入ではなく、「人の温かみとAIの効率性」が共存する組織作りを提償。Lark導入支援から、生成AIを活用したマーケティング戦略構築まで、現場に即した泥臭い支援を信条とする。"
   }
 };
 

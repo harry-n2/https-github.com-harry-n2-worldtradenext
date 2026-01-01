@@ -34,13 +34,13 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
         </div>
         
         <nav className="hidden xl:flex gap-12 items-center">
-          {['VISION', 'LARK', 'SERVICES'].map((item) => (
+          {['VISION', 'LARK', 'SERVICES', 'MCP'].map((item) => (
             <button 
               key={item}
               onClick={() => onNavigate(item as any)}
-              className="text-[10px] font-bold tracking-[0.4em] text-white/50 hover:text-gold transition-all duration-300"
+              className={`text-[10px] font-bold tracking-[0.4em] transition-all duration-300 ${item === 'MCP' ? 'text-[#00FFFF] hover:text-white' : 'text-white/50 hover:text-gold'}`}
             >
-              {item}
+              {item === 'MCP' ? 'MCP REVOLUTION' : item}
             </button>
           ))}
           <button 
@@ -52,7 +52,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           </button>
         </nav>
 
-        {/* Hamburger placeholder for mobile */}
         <button onClick={() => onNavigate('CONTACT')} className="xl:hidden flex flex-col gap-1.5 cursor-pointer p-2">
           <div className="w-6 h-[1px] accent-bg"></div>
           <div className="w-6 h-[1px] accent-bg translate-x-1"></div>

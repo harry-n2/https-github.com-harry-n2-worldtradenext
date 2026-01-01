@@ -5,10 +5,10 @@ import SummaryCard from './components/SummaryCard';
 import ComparisonChart from './components/ComparisonChart';
 import GeminiChat from './components/GeminiChat';
 import { 
-  VISION, LARK_SYSTEM, SERVICES, IMAGES, LINKS 
+  VISION, LARK_SYSTEM, SERVICES, IMAGES, LINKS, COLORS 
 } from './constants';
 
-type ViewState = 'HOME' | 'VISION' | 'LARK' | 'SERVICES' | 'CONTACT';
+type ViewState = 'HOME' | 'VISION' | 'LARK' | 'SERVICES' | 'MCP' | 'CONTACT';
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewState>('HOME');
@@ -32,7 +32,6 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // 指示画像に基づいたPDFダウンロードセクション
   const PDFDownloadSection = () => (
     <section className="w-full py-20 px-4 reveal-on-scroll active">
       <div className="max-w-5xl mx-auto glass-panel bg-[#0a0f1a] border-white/5 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -93,8 +92,8 @@ const App: React.FC = () => {
                 管理の苦痛を解放し、企業の創造性を最大化する。
               </p>
               <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16">
-                <button onClick={() => navigateTo('LARK')} className="min-w-[280px] px-12 py-6 accent-bg text-white font-bold text-[10px] tracking-[0.4em] shadow-2xl hover:scale-105 transition-all duration-500 uppercase">
-                  LARK自動化システム詳細
+                <button onClick={() => navigateTo('MCP')} className="min-w-[280px] px-12 py-6 accent-bg text-white font-bold text-[10px] tracking-[0.4em] shadow-2xl hover:scale-105 transition-all duration-500 uppercase">
+                  MCP連携 プレミアム
                 </button>
                 <button onClick={() => navigateTo('SERVICES')} className="min-w-[280px] px-12 py-6 glass-panel text-white font-bold text-[10px] tracking-[0.4em] hover:bg-white/5 transition-all duration-500 uppercase">
                   事業内容を確認する
@@ -102,33 +101,188 @@ const App: React.FC = () => {
               </div>
               <PDFDownloadSection />
             </section>
-
-            <section className="py-40 px-8 bg-navy/90 relative">
-              <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
-                <div className="space-y-12">
-                  <div className="h-[550px] overflow-hidden shadow-2xl border border-white/5 group">
-                    <img src={IMAGES.BUSINESS_EFFICIENCY} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Systemized Management" />
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center">
-                  <h2 className="text-gold font-bold tracking-[0.5em] text-xs mb-8 uppercase">Efficiency Mastery</h2>
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-10 leading-tight">画像で直感的にわかる、<br />WTNの次世代管理。</h3>
-                  <p className="text-slate text-lg font-light leading-loose mb-12">
-                    複雑な外国人材の在留管理、契約、更新。これらすべてをスマートなデジタル環境へ移行します。
-                    手入力の時間は96%削減され、管理者は本来注力すべき「人」へのサポートに集中できます。
+          </div>
+        );
+      case 'MCP':
+        return (
+          <div className="bg-[#050a14] min-h-screen text-white font-sans">
+            {/* 2.1 Executive First View */}
+            <section className="relative min-h-screen flex flex-col items-center justify-center px-8 text-center overflow-hidden">
+               <div className="absolute inset-0 z-0">
+                  <img src={IMAGES.MCP_HERO} className="w-full h-full object-cover opacity-20" alt="Executive Background" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#050a14] via-transparent to-[#050a14]/60"></div>
+               </div>
+               <div className="relative z-10 max-w-5xl">
+                  <span className="text-[#c5a059] text-[12px] font-bold tracking-[0.8em] uppercase block mb-6 animate-pulse">Premium Edition</span>
+                  <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
+                    AIがあなたの「右腕」から<br />
+                    <span className="text-[#c5a059]">「未来の営業執行役員」</span>へ
+                  </h1>
+                  <h2 className="text-2xl md:text-4xl font-bold mb-12 text-white/90">
+                    静寂を破り、革命をもたらす。自動収益化の頂点へ。
+                  </h2>
+                  <p className="text-xl md:text-2xl font-light mb-16 text-slate leading-relaxed max-w-4xl mx-auto">
+                    既存の枠を超えたModel Context Protocol (MCP)により、事業の自動化は新たなステージへ。
                   </p>
-                  <div className="grid grid-cols-2 gap-8">
-                     <div className="p-8 glass-panel border-gold/20">
-                        <div className="text-gold text-3xl font-bold mb-2">96%</div>
-                        <div className="text-white text-xs font-bold tracking-widest uppercase">Input Reduction</div>
-                     </div>
-                     <div className="p-8 glass-panel border-gold/20">
-                        <div className="text-gold text-3xl font-bold mb-2">ERR 0</div>
-                        <div className="text-white text-xs font-bold tracking-widest uppercase">Compliance Safety</div>
-                     </div>
-                  </div>
+                  <a 
+                    href={LINKS.OFFICIAL_LINE}
+                    target="_blank"
+                    className="inline-block bg-[#c5a059] text-white px-16 py-8 font-bold text-[12px] tracking-[0.5em] shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:bg-[#d4b06a] hover:scale-105 transition-all uppercase rounded-sm"
+                  >
+                    限定デモンストレーションを予約する
+                  </a>
+               </div>
+            </section>
+
+            {/* 2.2 Pain Points: Before */}
+            <section className="py-32 px-8 bg-[#0a0f1a] border-y border-white/5">
+              <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+                <div className="grayscale opacity-40 hover:grayscale-0 transition-all duration-1000 shadow-2xl rounded-sm overflow-hidden border border-white/10">
+                   <img src={IMAGES.MCP_PAIN} className="w-full h-96 object-cover" alt="Pain Points Visual" />
+                </div>
+                <div>
+                   <h2 className="text-white text-4xl md:text-5xl font-bold mb-10 leading-tight">
+                     未だ、リスト集めやSNS運用に<br />貴重な時間を費やしていますか？
+                   </h2>
+                   <p className="text-xl font-light leading-relaxed mb-8 text-slate">
+                     その努力は、本来の経営戦略ではありません。煩雑なルーチンワークに囚われることは、洗練された「負のイメージ」であり、あなたの真の価値を損なっています。
+                   </p>
+                   <div className="h-[2px] w-24 bg-[#c5a059] mb-8"></div>
+                   <p className="text-lg italic font-medium text-gold">現代の経営者に必要なのは、作業ではなく「決断」の領域への回帰です。</p>
                 </div>
               </div>
+            </section>
+
+            {/* 2.3 MCP Solution: The Breakthrough */}
+            <section className="py-40 px-8 bg-[#050a14] relative overflow-hidden">
+               <div className="max-w-7xl mx-auto text-center relative z-10">
+                  <h2 className="text-[#c5a059] text-[10px] font-bold tracking-[0.6em] mb-12 uppercase">The Breakthrough</h2>
+                  <div className="grid md:grid-cols-2 gap-12 text-left">
+                     <div className="glass-panel p-12 shadow-2xl border-t-4 border-[#c5a059] group hover:-translate-y-2 transition-transform bg-white/5">
+                        <div className="text-6xl mb-8 group-hover:scale-110 transition-transform inline-block">🔗</div>
+                        <h3 className="text-3xl font-bold mb-6 text-white">AI「接着剤」:<br /><span className="text-[#c5a059]">あらゆるビジネスツールを繋ぐ、唯一無二のプロトコル。</span></h3>
+                        <p className="text-base font-light leading-loose text-slate">
+                          バラバラだったSaaSやデータベースをAIが一つに統合。もはや「管理」する必要はありません。知的なハブがすべてを繋ぎます。
+                        </p>
+                     </div>
+                     <div className="glass-panel p-12 shadow-2xl border-t-4 border-[#00FFFF] text-white group hover:-translate-y-2 transition-transform bg-[#0a0f1a]">
+                        <div className="text-6xl mb-8 group-hover:scale-110 transition-transform inline-block text-[#00FFFF]">💼</div>
+                        <h3 className="text-3xl font-bold mb-6">コスト・ゼロで、<br /><span className="text-[#00FFFF]">即座に「自動営業部」を資産化。</span></h3>
+                        <p className="text-base font-light leading-loose text-slate">
+                          人件費も教育も不要。24時間365日、AIが貴社のフロントエンドを支える最強の営業チームへと変貌します。
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            {/* 2.4 Automation Flow: After */}
+            <section className="py-40 px-8 bg-[#0a0f1a]">
+               <div className="max-w-6xl mx-auto">
+                  <div className="text-center mb-24">
+                     <h2 className="text-white text-5xl font-bold mb-6 tracking-tight">理想のビジネスフローを、現実に。</h2>
+                     <p className="text-slate text-lg font-light">「寝ている間に売上」を実現する洗練されたサイクル</p>
+                  </div>
+                  <div className="space-y-16">
+                     <div className="flex flex-col md:flex-row items-center gap-12 p-12 glass-panel relative group border-l-8 border-[#c5a059] bg-white/5">
+                        <div className="text-5xl font-bold text-[#c5a059] opacity-30">PHASE 01</div>
+                        <div className="flex-1">
+                           <h4 className="text-2xl font-bold mb-4 text-white">価値創造</h4>
+                           <p className="text-lg font-light text-slate">AIが市場を分析し、ターゲットに突き刺さる商材やコンテンツを自動生成。</p>
+                        </div>
+                        <div className="hidden md:block text-3xl animate-bounce-horizontal text-gold">→</div>
+                     </div>
+                     <div className="flex flex-col md:flex-row items-center gap-12 p-12 glass-panel relative group border-l-8 border-[#c5a059] bg-white/5">
+                        <div className="text-5xl font-bold text-[#c5a059] opacity-30">PHASE 02</div>
+                        <div className="flex-1">
+                           <h4 className="text-2xl font-bold mb-4 text-white">自動集客 & ナーチャリング</h4>
+                           <p className="text-lg font-light text-slate">SNS運用からリード獲得まで、AIが顧客の感情を動かす最適なタイミングでアプローチ。</p>
+                        </div>
+                        <div className="hidden md:block text-3xl animate-bounce-horizontal text-gold">→</div>
+                     </div>
+                     <div className="flex flex-col md:flex-row items-center gap-12 p-12 bg-gold/10 text-white relative group shadow-2xl border border-gold/30">
+                        <div className="text-5xl font-bold text-[#c5a059] opacity-50">PHASE 03</div>
+                        <div className="flex-1">
+                           <h4 className="text-2xl font-bold mb-4">完全自動完結</h4>
+                           <p className="text-lg font-light text-white/80">問い合わせ対応からクレジットカード決済まで。人の手を介さず収益を確定させます。</p>
+                        </div>
+                        <div className="hidden md:block text-4xl">💰</div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            {/* Material Download: Premium Material Placement */}
+            <section className="py-32 px-8 bg-[#050a14]">
+              <div className="max-w-5xl mx-auto glass-panel bg-[#0a0f1a] border-white/10 p-12 flex flex-col md:flex-row items-center gap-16 shadow-2xl">
+                 <div className="w-48 h-64 flex-shrink-0 relative group">
+                    <img src={IMAGES.PDF_THUMBNAIL} className="w-full h-full object-cover shadow-2xl border border-white/10" alt="MCP Material" />
+                    <div className="absolute inset-0 bg-[#c5a059]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 </div>
+                 <div className="text-center md:text-left">
+                    <div className="text-[#c5a059] text-[10px] font-bold tracking-[0.5em] mb-4 uppercase">Special Material</div>
+                    <h3 className="text-3xl font-bold mb-8 text-white leading-tight">
+                      MCP連携・プレミアム解説資料<br />「自動営業部」構築の全貌
+                    </h3>
+                    <p className="text-slate text-base font-light mb-12 leading-relaxed">
+                      添付資料のコンセプトを詳細に解説。具体的な導入フローとコスト削減効果を数値で公開しています。
+                    </p>
+                    <a 
+                      href={LINKS.MCP_MATERIAL} 
+                      target="_blank" 
+                      className="inline-block bg-[#c5a059] text-white px-12 py-6 font-bold text-[11px] tracking-[0.4em] hover:bg-[#d4b06a] transition-all uppercase shadow-xl"
+                    >
+                      プレミアム資料をダウンロード
+                    </a>
+                 </div>
+              </div>
+            </section>
+
+            {/* 2.5 Social Proof */}
+            <section className="py-40 px-8 bg-[#0a0f1a] text-center border-t border-white/5">
+               <h3 className="text-white font-bold text-3xl mb-16 tracking-tight">選ばれし経営者たちが、既にこの革命を享受しています。</h3>
+               <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                  <div className="p-10 glass-panel bg-white/5 border-white/10 hover:border-[#c5a059] transition-colors">
+                     <div className="text-[#c5a059] text-5xl font-bold mb-4">150%</div>
+                     <div className="text-[12px] font-bold tracking-widest text-slate uppercase">Revenue Increase</div>
+                  </div>
+                  <div className="p-10 glass-panel bg-white/5 border-white/10 hover:border-[#c5a059] transition-colors">
+                     <div className="text-[#c5a059] text-5xl font-bold mb-4">30%</div>
+                     <div className="text-[12px] font-bold tracking-widest text-slate uppercase">Cost Reduction</div>
+                  </div>
+                  <div className="p-10 glass-panel bg-white/5 border-white/10 hover:border-[#c5a059] transition-colors">
+                     <div className="text-[#c5a059] text-5xl font-bold mb-4">96%</div>
+                     <div className="text-[12px] font-bold tracking-widest text-slate uppercase">Time Efficiency</div>
+                  </div>
+               </div>
+            </section>
+
+            {/* 2.6 Closing & Final CTA */}
+            <section className="py-48 px-8 bg-[#050a14] text-center relative overflow-hidden">
+               <div className="absolute inset-0 opacity-10">
+                  <img src={IMAGES.MCP_HERO} className="w-full h-full object-cover" alt="CTA BG" />
+               </div>
+               <div className="max-w-5xl mx-auto relative z-10 text-white">
+                  <h2 className="text-4xl md:text-6xl font-bold mb-16 leading-tight">
+                    あなたのビジネスを、退屈な作業から解放し、<br />
+                    本来あるべき「意思決定」という舞台へ。
+                  </h2>
+                  <div className="space-y-8">
+                    <a 
+                      href={LINKS.OFFICIAL_LINE}
+                      target="_blank"
+                      className="inline-block bg-[#c5a059] text-white px-24 py-12 font-bold text-[16px] tracking-[0.6em] shadow-[0_30px_70px_rgba(197,160,89,0.4)] hover:bg-[#d4b06a] hover:scale-110 transition-all uppercase rounded-sm border-b-4 border-[#a48447]"
+                    >
+                      この革命に参加する
+                    </a>
+                    <div>
+                      <a href={LINKS.OFFICIAL_LINE} target="_blank" className="text-[#00FFFF] font-bold tracking-widest text-sm hover:underline">
+                        無料の個別コンサルティングを申し込む →
+                      </a>
+                    </div>
+                  </div>
+                  <p className="mt-20 text-white/30 text-xs font-bold tracking-[0.4em] uppercase">JOIN THE MCP REVOLUTION VIA OFFICIAL LINE</p>
+               </div>
             </section>
           </div>
         );
@@ -143,7 +297,6 @@ const App: React.FC = () => {
                   <h1 className="text-5xl font-bold mb-12 text-white leading-tight">未来を、AIで確信に変える。</h1>
                   <p className="text-xl text-slate font-light leading-loose mb-16">{VISION.description}</p>
                   
-                  {/* Lark Profile Link Section */}
                   <div className="glass-panel p-10 border-gold mb-16 bg-navy/60">
                     <h3 className="text-gold text-[10px] font-bold tracking-[0.4em] mb-4 uppercase">Corporate Document</h3>
                     <p className="text-white text-lg font-bold mb-6">World Trade Next 会社概要</p>
@@ -165,7 +318,6 @@ const App: React.FC = () => {
                   <div className="glass-panel p-12 border-gold/30 bg-black/40 backdrop-blur-xl">
                     <div className="flex flex-col items-center mb-10 text-center">
                       <div className="w-64 h-80 mb-10 border-4 border-gold/10 p-1 bg-navy overflow-hidden shadow-2xl">
-                        {/* 西野代表の画像：指示通りのURLを表示 */}
                         <img 
                           src={IMAGES.REPRESENTATIVE} 
                           alt="西野 直哉 代表" 
@@ -254,7 +406,6 @@ const App: React.FC = () => {
                       <div className="text-4xl mb-8 opacity-50">{s.icon}</div>
                       <h4 className="text-2xl font-bold text-white mb-6 uppercase tracking-[0.2em]">{s.title}</h4>
                       <p className="text-slate leading-loose font-light mb-10 text-sm">{s.description}</p>
-                      {/* DETAILSボタン：s.linkがあればそれを使用、なければデフォルトのLarkリンクを使用 */}
                       <button 
                         onClick={() => window.open(s.link || LINKS.LARK_PROFILE_DOC, '_blank')} 
                         className="text-gold font-bold tracking-[0.4em] text-[10px] flex items-center gap-4 hover:gap-8 transition-all"
@@ -272,7 +423,7 @@ const App: React.FC = () => {
                     <div className="absolute inset-0 bg-navy/30"></div>
                     <div className="absolute inset-0 p-16 flex flex-col justify-end">
                        <h3 className="text-3xl font-bold text-white mb-6 font-heading">WTN AI Concierge</h3>
-                       <p className="text-slate text-sm leading-loose font-light">高度な推論と、25年の営業知見を学習したデジタルパートナー。<br />あなたの経営課題に、24時間365日回答を提示します。</p>
+                       <p className="text-slate text-sm leading-loose font-light">高度な推論と、25年の営業知見を学習した digital partner。<br />あなたの経営課題に、24時間365日回答を提示します。</p>
                     </div>
                  </div>
                  <div className="order-1 lg:order-2">
@@ -322,7 +473,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-navy selection:bg-gold selection:text-white">
+    <div className={`min-h-screen bg-navy selection:bg-gold selection:text-white ${view === 'MCP' ? 'theme-premium' : ''}`}>
       <div id="page-overlay"></div>
       <Header onNavigate={navigateTo} />
 
@@ -348,7 +499,7 @@ const App: React.FC = () => {
             <div>
               <h4 className="text-white font-bold text-xs tracking-widest mb-10 uppercase">Navigation</h4>
               <nav className="flex flex-col gap-5">
-                {['VISION', 'LARK', 'SERVICES', 'CONTACT'].map((item) => (
+                {['VISION', 'LARK', 'SERVICES', 'MCP', 'CONTACT'].map((item) => (
                   <button key={item} onClick={() => navigateTo(item as any)} className="text-[11px] font-bold tracking-[0.4em] text-slate hover:text-gold transition-colors text-left uppercase">{item}</button>
                 ))}
               </nav>
@@ -358,6 +509,7 @@ const App: React.FC = () => {
               <nav className="flex flex-col gap-5">
                 <a href={LINKS.PRESENTATION_PDF} target="_blank" className="text-[11px] font-bold tracking-[0.5em] text-gold hover:text-white transition-colors text-left uppercase">GET PRESENTATION PDF</a>
                 <a href={LINKS.LARK_PROFILE_DOC} target="_blank" className="text-[11px] font-bold tracking-[0.5em] text-gold hover:text-white transition-colors text-left uppercase">COMPANY PROFILE</a>
+                <a href={LINKS.MCP_MATERIAL} target="_blank" className="text-[11px] font-bold tracking-[0.5em] text-[#00FFFF] hover:text-white transition-colors text-left uppercase">MCP PREMIUM MATERIAL</a>
               </nav>
             </div>
           </div>
@@ -366,6 +518,15 @@ const App: React.FC = () => {
           <p className="text-[10px] tracking-[0.4em] opacity-30 uppercase">© 2025 World Trade Next. All Rights Reserved.</p>
         </div>
       </footer>
+      <style>{`
+        @keyframes bounce-horizontal {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(10px); }
+        }
+        .animate-bounce-horizontal {
+          animation: bounce-horizontal 2s infinite ease-in-out;
+        }
+      `}</style>
     </div>
   );
 };
